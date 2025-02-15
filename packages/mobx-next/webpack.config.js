@@ -8,6 +8,7 @@ module.exports = {
         filename: "index.js",
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: "umd",
+        globalObject: "this",
         clean: true
     },
     resolve: {

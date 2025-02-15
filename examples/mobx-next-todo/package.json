@@ -1,5 +1,5 @@
 {
-  "name": "mobx-next todo app",
+  "name": "mobx-next-todo",
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
@@ -12,8 +12,7 @@
     "mobx-react-lite": "^4.1.0",
     "next": "15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "mobx-next": "^0.0.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
