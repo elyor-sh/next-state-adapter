@@ -1,0 +1,1 @@
+# Usage of **mobx-next** package with Next.js App Router.

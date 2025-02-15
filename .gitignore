@@ -1,0 +1,6 @@
+.idea
+packages/mobx-next/node_modules
+packages/mobx-next/dist
+
+examples/mobx-next-todo/node_modules
+examples/mobx-next-todo/.next

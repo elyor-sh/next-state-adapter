@@ -1,0 +1,37 @@
+{
+  "name": "mobx-next",
+  "version": "0.0.1",
+  "description": "Mobx wrapper Next.js App Router",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "npx webpack",
+    "pub": "npx webpack && npm version patch && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:elyor-sh/mobx-next.git"
+  },
+  "keywords": [
+    "mobx",
+    "nextjs",
+    "mobx-next"
+  ],
+  "author": "Elyor Shodiyorov <elyor.sh.99@mail.ru>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "mobx": "^6.10.0",
+    "react": "^19.0.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "peerDependencies": {
+    "mobx": "^6.0.0",
+    "react": "^16.0.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
