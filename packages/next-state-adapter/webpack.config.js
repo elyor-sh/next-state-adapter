@@ -15,8 +15,7 @@ module.exports = {
         extensions: ['.ts', '.tsx']
     },
     externals: {
-        react: 'react',
-        mobx: 'mobx'
+        react: 'react'
     },
     module: {
         rules: [

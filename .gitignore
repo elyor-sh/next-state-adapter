@@ -1,6 +1,9 @@
 .idea
-packages/mobx-next/node_modules
-packages/mobx-next/dist
+packages/next-state-adapter/node_modules
+packages/next-state-adapter/dist
 
-examples/mobx-next-todo/node_modules
-examples/mobx-next-todo/.next
+examples/mobx-next-app/node_modules
+examples/mobx-next-app/.next
+
+examples/zustand-next-app/node_modules
+examples/zustand-next-app/.next

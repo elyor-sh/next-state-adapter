@@ -17,7 +17,7 @@ import {useInitialRender} from "./useInitialRender";
  *
  * @example
  * ~/store/config.ts
- * import {withStore as withStoreHoc} from 'mobx-next';
+ * import {withStore as withStoreHoc} from 'next-state-adapter';
  * ...
  * export const withStore = withStoreHoc.withTypes<MyStoreType>()
  *

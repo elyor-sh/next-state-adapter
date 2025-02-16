@@ -1,5 +1,5 @@
 {
-  "name": "mobx-next",
+  "name": "next-state-adapter",
   "version": "0.0.2",
   "description": "Mobx wrapper Next.js App Router",
   "main": "./dist/index.js",
@@ -9,18 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:elyor-sh/mobx-next.git"
+    "url": "git@github.com:elyor-sh/next-state-adapter.git"
   },
   "keywords": [
-    "mobx",
     "nextjs",
-    "mobx-next"
+    "next-state-adapter",
+    "state-management",
+    "mobx",
+    "zustand"
   ],
   "author": "Elyor Shodiyorov <elyor.sh.99@mail.ru>",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^19.0.8",
-    "mobx": "^6.10.0",
     "react": "^19.0.0",
     "ts-loader": "^9.4.4",
     "typescript": "^5.1.6",
@@ -28,7 +29,6 @@
     "webpack-cli": "^5.1.4"
   },
   "peerDependencies": {
-    "mobx": "^6.0.0",
     "react": "^16.0.0"
   },
   "files": [

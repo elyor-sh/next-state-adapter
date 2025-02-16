@@ -1,6 +1,6 @@
-# mobx-next: mobx wrapper for Next.js App Router
+# next-state-adapter: is a state management adapter for Next.js App Router
 
-**mobx-next** is mobx wrapper for **Next.js App Router**, enabling efficient and reactive state management in Server Components and Client Components.
+**next-state-adapter** is state management adapter for **Next.js App Router**, enabling efficient state management in Server Components and Client Components.
 
 ## ✨ Features
 - Works seamlessly with Next.js **App Router** (`app/` directory)
@@ -13,21 +13,21 @@
 Install the package using npm or yarn:
 
 ```sh
-npm install mobx-next
+npm install next-state-adapter
 # or
-yarn add mobx-next
+yarn add next-state-adapter
 ```
 
 ## 📖 Usage
 
-### 1. Configure root store, store provider, typed hook and withStore hoc 
+### 1. Configure root store, store provider, typed hook and withStore hoc
 
 ```tsx
 // ~/store/config.ts
 'use client';
 
 import {RootStore} from "@/store/root";
-import {createProvider, useStore, withStore as withStoreHoc} from "mobx-next";
+import {createProvider, useStore, withStore as withStoreHoc} from "next-state-adapter";
 
 const makeStore = () => {
     return new RootStore()
@@ -59,7 +59,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
 }
 ```
 
-### 3. Create your component with store
+### 3. Create your component with store, (example with Mobx, you can use any).
 
 ```tsx
 // ~/todos/list.tsx
