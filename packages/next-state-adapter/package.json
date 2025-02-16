@@ -1,7 +1,7 @@
 {
   "name": "next-state-adapter",
-  "version": "0.0.2",
-  "description": "Mobx wrapper Next.js App Router",
+  "version": "0.0.1",
+  "description": "State adapter for Next.js App Router",
   "main": "./dist/index.js",
   "scripts": {
     "build": "npx webpack",
