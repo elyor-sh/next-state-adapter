@@ -1,7 +1,11 @@
 'use client';
 
 import {RootStore} from "@/store/root";
-import {createProvider, useStore, withStore as withStoreHoc} from "mobx-next";
+import {
+    createProvider,
+    useStore,
+    withStore as withStoreHoc
+} from "next-state-adapter";
 
 const makeStore = () => {
     return new RootStore()
