@@ -11,8 +11,9 @@ type Props = {
     initialUsers: User[];
 }
 
+// eslint-disable-next-line
 class Users extends Component<Props, {}> {
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
     }
 
@@ -40,7 +41,7 @@ class Users extends Component<Props, {}> {
                                 <div className="mt-3 text-sm text-gray-600">
                                     <p className="font-semibold">Company:</p>
                                     <p>{user.company.name}</p>
-                                    <p className="italic">"{user.company.catchPhrase}"</p>
+                                    <p className="italic">{user.company.catchPhrase}</p>
                                 </div>
                                 <div className="mt-4 text-center">
                                     <Link

@@ -31,6 +31,7 @@ export const fetchUsers = async (): Promise<User[]> => {
 
         return response.json()
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     }catch (e) {
         return []
     }
