@@ -3,8 +3,7 @@
 import {RootStore} from "@/store/root";
 import {
     createProvider,
-    useStore,
-    withStore as withStoreHoc
+    useStore, useStoreHydration,
 } from "next-state-adapter";
 
 const makeStore = () => {
@@ -13,6 +12,7 @@ const makeStore = () => {
 
 export const useAppStore = useStore.withTypes<RootStore>();
 
-export const withStore = withStoreHoc.withTypes<RootStore>()
+// Hook for hydrating the client store with server data.
+export const useAppStoreHydration = useStoreHydration.withTypes<RootStore>()
 
 export const StoreProvider = createProvider(makeStore)

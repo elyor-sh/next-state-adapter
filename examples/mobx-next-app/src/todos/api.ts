@@ -1,25 +1,22 @@
-import {Todo} from "@/todos/model";
+import {toQueryString} from "@/shared/lib/toQueryString";
 
-export async function fetchTodos (): Promise<Todo[]> {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve([
-                {
-                    id: '1',
-                    title: 'Todo 1',
-                    completed: false
-                },
-                {
-                    id: '2',
-                    title: 'Todo 2',
-                    completed: false
-                },
-                {
-                    id: '3',
-                    title: 'Todo 3',
-                    completed: false
-                },
-            ])
-        }, 200)
-    })
+export type Todo = {
+    id: string;
+    title: string;
+    completed: boolean;
+    userId: number;
+}
+
+export type TodoQueryParams = {
+    userId?: string;
+}
+
+export async function fetchTodos (query?: TodoQueryParams): Promise<Todo[]> {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/todos${toQueryString(query)}`);
+
+    if(!response.ok){
+        return []
+    }
+
+    return response.json()
 }

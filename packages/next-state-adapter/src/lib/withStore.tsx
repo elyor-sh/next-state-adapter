@@ -1,6 +1,6 @@
 'use client';
 
-import React, {forwardRef, JSX} from "react";
+import React, {ComponentType, forwardRef, JSX} from "react";
 import {useStore} from "./store";
 import {useInitialRender} from "./useInitialRender";
 
@@ -44,28 +44,27 @@ import {useInitialRender} from "./useInitialRender";
  *     )
  * };
  */
-export const withStore = <Component extends (...args: unknown[]) => JSX.Element,Store = unknown>(Component: Component, cb: (store: Store, args: Parameters<Component>[0]) => void) => {
+
+export const withStore = <Props,Store = unknown>(Component: ComponentType<Props & {store: Store}>, cb: (store: Store, args: Props) => void) => {
     const WrappedComponent = forwardRef((props: unknown, ref) => {
         const store = useStore() as Store;
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        useInitialRender(() => cb(store, props));
+        useInitialRender(() => cb(store, props as Props));
 
         if(!ref){
             // @ts-ignore
-            return <Component {...props} />;
+            return <Component {...props} store={store}/>;
         }
 
         // @ts-ignore
-        return <Component {...props} ref={ref} />;
+        return <Component {...props} ref={ref} store={store}/>;
     });
 
     WrappedComponent.displayName = 'WrappedComponent'
 
-    return WrappedComponent as unknown as Component;
+    return WrappedComponent as unknown as ((props: Omit<Props, 'store'>) => JSX.Element);
 }
 
 withStore.withTypes = <Store,>() => {
     // @ts-ignore
-    return <Component,>(Component: Component, cb: (store: Store, args: Parameters<Component>[0]) => void) => withStore<Component, Store>(Component, cb)
+    return <Props,>(Component: ComponentType<Props>, cb: (store: Store, args: Props) => void) => withStore<Props, Store>(Component, cb)
 }

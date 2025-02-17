@@ -1,11 +1,11 @@
-import {fetchTodos, TodoList} from "@/todos";
+import {fetchUsers, UsersList} from "@/users";
 
-export default async function Todos () {
-  const initialTodos = await fetchTodos()
+export default async function Users () {
+  const initialUsers = await fetchUsers()
 
   return (
       <>
-        <TodoList initialTodos={initialTodos} />
+            <UsersList initialUsers={initialUsers} />
       </>
   );
 }

@@ -35,9 +35,14 @@ const makeStore = () => {
 
 export const useAppStore = useStore.withTypes<RootStore>();
 
-export const withStore = withStoreHoc.withTypes<RootStore>()
+// Hook for hydrating the client store with server data.
+export const useAppStoreHydration = useStoreHydration.withTypes<RootStore>()
 
 export const StoreProvider = createProvider(makeStore)
+
+// if you need support class components, create HOC withStore (Don't write 'use client' in this file)
+// ~/store/withStore.ts
+export const withStore = withStoreHoc.withTypes<RootStore>()
 
 ```
 
@@ -49,24 +54,27 @@ export const StoreProvider = createProvider(makeStore)
 export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body>
-                <StoreProvider>
-                    {children}
-                </StoreProvider>
-            </body>
+        <body>
+        <StoreProvider>
+            {children}
+        </StoreProvider>
+        </body>
         </html>
     );
 }
 ```
 
-### 3. Create your component with store, (example with Mobx, you can use any).
+### 3. Create your component with store, hydrate with server data (example with Mobx, you can use any).
 
 ```tsx
 // ~/todos/list.tsx
 'use client';
 
-const Todos = observer(({}: { initialTodos: Todo[] }) => {
-    const {todos} = useAppStore()
+const TodoList = observer(({initialTodos}: { initialTodos: Todo[] }) => {
+    const {todos} = useAppStoreHydration((store) => {
+        // hydrate the client store with the server data
+        store.todos.init(initialTodos)
+    })
 
     return (
         <>
@@ -84,20 +92,10 @@ const Todos = observer(({}: { initialTodos: Todo[] }) => {
     );
 });
 
-Todos.displayName = 'Todos';
+TodoList.displayName = 'Todos';
 ```
 
-### 4. Wrap your component to hoc withStore, set initial data to store
-
-```tsx
-// ~/todos/list.tsx
-export const TodoList = withStore(Todos, (store, props) => {
-    const {initialTodos} = props
-    store.todos.init(initialTodos) // Initial todos from server
-})
-```
-
-### 5. Use wrapped component on server component
+### 4. Use component on server component
 
 ```tsx
 // ~/app/todos/page.tsx
@@ -109,5 +107,45 @@ export default async function Todos () {
             <TodoList initialTodos={initialTodos} />
         </>
     );
+}
+```
+
+### 5. Using class components
+
+```tsx
+type Props = {
+    store: RootStore;
+    initialUsers: User[];
+}
+
+class Users extends Component<Props, {}> {
+    constructor(props) {
+        super(props);
+    }
+
+    render () {
+        const { store } = this.props;
+        const users = store.users.users
+
+        return (
+            <div>
+                {users.map(user => <div key={user.id}>{user.id}</div>)}
+            </div>
+        );
+    }
+}
+
+// withStore will pass store to component as props
+export const UsersList = withStore(Users, (store, props) => {
+    const {initialUsers} = props
+    store.users.init(initialUsers)
+})
+
+// server component
+export default async function UsersPage() {
+    const initialUsers = await fetchUsers()
+    return (
+        <UsersList initialUsers={initialUsers} />
+    )
 }
 ```

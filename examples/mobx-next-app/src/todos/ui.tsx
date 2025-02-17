@@ -1,13 +1,20 @@
 'use client';
 
 import {useState} from "react";
+import {runInAction} from "mobx";
 import {observer} from "mobx-react-lite";
-import {useAppStore, withStore} from "@/store/config";
-import {Todo} from "@/todos/model";
+import {useAppStoreHydration} from "@/store/config";
+import {Todo} from "@/todos/api";
 
 
-const Todos = observer(({}: { initialTodos: Todo[] }) => {
-    const {todos} = useAppStore()
+export const TodoList = observer(({initialTodos}: { initialTodos: Todo[] }) => {
+
+    const {todos} = useAppStoreHydration((store) => {
+        runInAction(() => {
+            store.todos.init(initialTodos)
+        })
+    })
+
     const [text, setText] = useState('');
 
     const handleAddTodo = () => {
@@ -18,8 +25,7 @@ const Todos = observer(({}: { initialTodos: Todo[] }) => {
     };
 
     return (
-        <div className="max-w-md mx-auto p-4 bg-white shadow-lg rounded-lg">
-            <h2 className="text-xl font-bold mb-4">Todo List</h2>
+        <div className="mx-auto p-4 bg-white shadow-lg rounded-lg">
             <div className="flex mb-4">
                 <input
                     type="text"
@@ -61,9 +67,5 @@ const Todos = observer(({}: { initialTodos: Todo[] }) => {
     );
 });
 
-Todos.displayName = 'Todos';
+TodoList.displayName = 'TodoList'
 
-export const TodoList = withStore(Todos, (store, props) => {
-    const {initialTodos} = props
-    store.todos.init(initialTodos)
-})

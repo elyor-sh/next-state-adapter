@@ -1,12 +1,13 @@
 {
   "name": "next-state-adapter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "State adapter for Next.js App Router",
   "main": "./dist/index.js",
   "scripts": {
     "build": "npx webpack",
     "pub": "npx webpack && npm version patch && npm publish"
   },
+  "homepage": "https://github.com/elyor-sh/next-state-adapter",
   "repository": {
     "type": "git",
     "url": "git@github.com:elyor-sh/next-state-adapter.git"

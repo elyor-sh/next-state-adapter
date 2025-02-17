@@ -95,5 +95,7 @@ export const createProvider = <AppStore,>(makeStore: () => AppStore) => {
         )
     }
 
+    StoreProvider.displayName = 'NextStateAdapterStoreProvider'
+
     return StoreProvider
 }

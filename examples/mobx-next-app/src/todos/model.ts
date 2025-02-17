@@ -1,10 +1,5 @@
 import {makeAutoObservable} from "mobx";
-
-export type Todo = {
-    id: string;
-    title: string;
-    completed: boolean;
-}
+import {Todo} from "@/todos/api";
 
 export class TodoModel {
 
@@ -22,7 +17,8 @@ export class TodoModel {
         this.todos.push({
             id: (Math.random() * 100).toString(36),
             title,
-            completed: false
+            completed: false,
+            userId: this.todos.length + 2
         })
     }
 
