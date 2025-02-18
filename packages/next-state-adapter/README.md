@@ -2,6 +2,8 @@
 
 **next-state-adapter** is state management adapter for **Next.js App Router**, enabling efficient state management in Server Components and Client Components.
 
+For more detailed documentation, visit the [official docs](https://next-state-adapter.vercel.app/docs/intro).
+
 ## ✨ Features
 - Works seamlessly with Next.js **App Router** (`app/` directory)
 - Supports **initial data** placement in the **server-side store**
