@@ -7,3 +7,6 @@ examples/mobx-next-app/.next
 
 examples/zustand-next-app/node_modules
 examples/zustand-next-app/.next
+
+docs/next-state-adapter-docs/node_modules
+docs/next-state-adapter-docs/.docusaurus

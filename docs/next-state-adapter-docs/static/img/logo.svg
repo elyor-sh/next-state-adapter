@@ -1,0 +1,14 @@
+<svg
+        width="200" height="200" viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+>
+    <!-- Черный фон -->
+    <rect width="200" height="200" fill="#000000" />
+
+    <!-- Линия, вдохновленная стилем Next.js -->
+    <path d="M50 150 L150 50" stroke="#00C8FF" stroke-width="8" />
+
+    <!-- Текст NSA -->
+    <text x="100" y="120" font-size="48" fill="#00C8FF" font-family="Arial" font-weight="bold" text-anchor="middle">NSA</text>
+</svg>
