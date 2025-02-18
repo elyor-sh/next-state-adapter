@@ -5,6 +5,8 @@ sidebar_label: Introduction
 
 `next-state-adapter` is a library designed to simplify state management in Next.js App Router applications. It provides a clean and declarative API for managing state, synchronizing data, and optimizing performance.
 
+[Link to npm](https://www.npmjs.com/package/next-state-adapter)
+
 ### Key Features
 - Seamless integration with Next.js App Router.
 - Support for both server-side and client-side rendering.
