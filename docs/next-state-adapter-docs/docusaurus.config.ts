@@ -112,6 +112,25 @@ const config: Config = {
       priority: 0.5, // Приоритет ссылок
       filename: 'sitemap.xml', // Название файла
     },
+    metadata: [
+      { name: 'description', content: 'Powerful state management adapter for Next.js App Router with support for Zustand, MobX, Jotai, and more.' },
+      { name: 'keywords', content: 'next.js, app router, state management, zustand, mobx, jotai, react, nextjs state' },
+      { name: 'og:title', content: 'Next.js App Router State Management Adapter' },
+      { name: 'og:description', content: 'State management adapter for Next.js App Router with support for Zustand, MobX, Jotai, and more.' },
+      { name: 'og:image', content: 'https://next-state-adapter.vercel.app/img/og-image.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Next.js App Router State Management' },
+      { name: 'twitter:description', content: 'State management adapter for Next.js App Router with support for Zustand, MobX, Jotai, and more.' },
+      { name: 'twitter:image', content: 'https://next-state-adapter.vercel.app/img/og-image.png' },
+      { name: 'application/ld+json', content: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Next State Management Adapter",
+          "url": "https://next-state-adapter.vercel.app",
+          "description": "Powerful state management adapter for Next.js App Router with support for Zustand, MobX, Jotai, and more.",
+          "keywords": "next.js, app router, state management, zustand, mobx, jotai"
+        })}
+    ]
   } satisfies Preset.ThemeConfig,
 };
 
