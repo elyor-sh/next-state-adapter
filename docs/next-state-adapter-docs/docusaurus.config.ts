@@ -107,6 +107,11 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    sitemap: {
+      changefreq: 'weekly', // Как часто обновляется сайт
+      priority: 0.5, // Приоритет ссылок
+      filename: 'sitemap.xml', // Название файла
+    },
   } satisfies Preset.ThemeConfig,
 };
 

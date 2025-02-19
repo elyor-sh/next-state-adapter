@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/docs", "destination": "/docs/intro", "permanent": true },
+    { "source": "/", "destination": "/docs/intro", "permanent": true }
+  ]
+}

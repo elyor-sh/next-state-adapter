@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /search
+Allow: /
+
+Sitemap: https://next-state-adapter.vercel.app/sitemap.xml

@@ -1,0 +1,4 @@
+/docs /docs/intro 301
+/ /docs/intro 301
+/google766f487edce90d78.html /google766f487edce90d78.html 200
+/img/* /img/:splat 200
