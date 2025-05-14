@@ -1,6 +1,6 @@
 'use client';
 
-import React, {ComponentType, forwardRef, JSX} from "react";
+import React, {ComponentType, ForwardedRef, forwardRef, JSX, PropsWithoutRef, useRef} from "react";
 import {useStore} from "./store";
 import {useInitialRender} from "./useInitialRender";
 
@@ -46,7 +46,7 @@ import {useInitialRender} from "./useInitialRender";
  */
 
 export const withStore = <Props,Store = unknown>(Component: ComponentType<Props & {store: Store}>, cb: (store: Store, args: Props) => void) => {
-    const WrappedComponent = forwardRef((props: unknown, ref) => {
+    const WrappedComponent = forwardRef((props: PropsWithoutRef<Omit<Props, 'store'>>, ref) => {
         const store = useStore() as Store;
         useInitialRender(() => cb(store, props as Props));
 
@@ -61,7 +61,7 @@ export const withStore = <Props,Store = unknown>(Component: ComponentType<Props 
 
     WrappedComponent.displayName = 'WrappedComponent'
 
-    return WrappedComponent as unknown as ((props: Omit<Props, 'store'>) => JSX.Element);
+    return WrappedComponent
 }
 
 withStore.withTypes = <Store,>() => {
