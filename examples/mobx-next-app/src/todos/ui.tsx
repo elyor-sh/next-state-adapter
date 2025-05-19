@@ -1,7 +1,6 @@
 'use client';
 
 import {useState} from "react";
-import {runInAction} from "mobx";
 import {observer} from "mobx-react-lite";
 import {useAppStoreHydration} from "@/store/config";
 import {Todo} from "@/todos/api";
@@ -10,9 +9,7 @@ import {Todo} from "@/todos/api";
 export const TodoList = observer(({initialTodos}: { initialTodos: Todo[] }) => {
 
     const {todos} = useAppStoreHydration((store) => {
-        runInAction(() => {
-            store.todos.init(initialTodos)
-        })
+        store.todos.init(initialTodos)
     })
 
     const [text, setText] = useState('');
