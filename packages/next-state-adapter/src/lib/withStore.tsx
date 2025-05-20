@@ -1,6 +1,6 @@
 'use client';
 
-import React, {ComponentType, ForwardedRef, forwardRef, JSX, PropsWithoutRef, useRef} from "react";
+import React, {ComponentType, forwardRef, PropsWithoutRef, useEffect} from "react";
 import {useStore} from "./store";
 import {useInitialRender} from "./useInitialRender";
 
@@ -49,6 +49,11 @@ export const withStore = <Props,Store = unknown>(Component: ComponentType<Props 
     const WrappedComponent = forwardRef((props: PropsWithoutRef<Omit<Props, 'store'>>, ref) => {
         const store = useStore() as Store;
         useInitialRender(() => cb(store, props as Props));
+
+        useEffect(() => {
+            cb(store, props as Props)
+            // eslint-disable-next-line
+        }, [props])
 
         if(!ref){
             // @ts-ignore
