@@ -11,7 +11,7 @@
   "dependencies": {
     "mobx": "^6.13.6",
     "mobx-react-lite": "^4.1.0",
-    "next": "15.1.7",
+    "next": "15.1.9",
     "next-state-adapter": "^0.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
