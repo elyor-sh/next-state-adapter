@@ -10,3 +10,8 @@ examples/zustand-next-app/.next
 
 docs/next-state-adapter-docs/node_modules
 docs/next-state-adapter-docs/.docusaurus
+
+# env files
+.env
+.env.*
+!.env.example
